@@ -1,0 +1,94 @@
+{
+    "name": "playerControls",
+    "maps": [
+        {
+            "name": "New action map",
+            "id": "4a3dc4e6-20c0-4515-9d01-44d0d949b070",
+            "actions": [
+                {
+                    "name": "move forward",
+                    "type": "Button",
+                    "id": "d748e6f6-4be8-4f49-9991-d0fced3daf72",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "move right",
+                    "type": "Button",
+                    "id": "814d09cd-a149-446e-84c1-96a55228c299",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "move back",
+                    "type": "Button",
+                    "id": "79671983-e3f1-4239-b487-c75d7dabf4e3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "move left",
+                    "type": "Button",
+                    "id": "f05640bc-d76d-4e62-a9e3-4e9c8786273e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "47fb2369-85ec-4cc2-a9a4-961d44cbd44c",
+                    "path": "<Keyboard>/w",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "move forward",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "51858ec7-7103-4ddf-9b5e-f3c2034d2b94",
+                    "path": "<Keyboard>/d",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "move right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5809f6b2-8fd1-4bb2-8c04-457efa7a48d1",
+                    "path": "<Keyboard>/s",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "move back",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "81d0b7f9-256a-4b52-9b20-4eed43612615",
+                    "path": "<Keyboard>/a",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "move left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
