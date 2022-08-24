@@ -31,7 +31,18 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        playerControls = new PlayerControls();
+
+        #region -PLAYER INIT-
+
+            playerCap = gameObject.transform.GetChild(0).gameObject;
+            playerCam = playerCap.transform.GetChild(0).gameObject.GetComponent<Camera>();
+
+
+        #endregion
+
         #region -INPUTS SET-
+        
         moveForward = playerControls.movement.moveforward;
         moveRight = playerControls.movement.moveright;
         moveBack = playerControls.movement.moveback;
@@ -48,7 +59,12 @@ public class PlayerController : MonoBehaviour
         moveBack.performed += InputBack;
         moveLeft.performed += InputLeft;
 
+        playerControls.Enable();
+
         #endregion
+
+
+
     }
 
     // Start is called before the first frame update
@@ -65,6 +81,7 @@ public class PlayerController : MonoBehaviour
     #region -InputMoveFuncs-
     public void InputForward(InputAction.CallbackContext value)
     {
+        Debug.Log("inputForward");
         AttemptMove(0, 1);
     }
 
@@ -84,8 +101,16 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
-    public void AttemptMove(float direction, float distance)
+    public void AttemptMove(int direction, float distance)
     {
-
+        RaycastHit hit;
+        float moveDistance = distance * 2.5f;
+        Vector3 moveDirection = playerCap.transform.forward + new Vector3(0, direction, 0);
+        if(Physics.Raycast(gameObject.transform.position, moveDirection, out hit, moveDistance, 0, QueryTriggerInteraction.Ignore)){
+            Debug.Log("Invalid move!");
+        } else
+        {
+            gameObject.transform.position += (moveDirection.normalized * moveDistance);
+        }
     }
 }
