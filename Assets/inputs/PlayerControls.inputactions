@@ -1,8 +1,8 @@
 {
-    "name": "playerControls",
+    "name": "PlayerControls",
     "maps": [
         {
-            "name": "New action map",
+            "name": "movement",
             "id": "4a3dc4e6-20c0-4515-9d01-44d0d949b070",
             "actions": [
                 {
@@ -84,6 +84,34 @@
                     "processors": "",
                     "groups": "",
                     "action": "move left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "actions",
+            "id": "9db16b36-4b88-417b-806c-486a8b4e4223",
+            "actions": [
+                {
+                    "name": "confirmUse",
+                    "type": "Button",
+                    "id": "63947c87-cf4d-40fb-bedf-e7e01da9c659",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "db968196-978e-453a-a7ad-b2e07a0c7716",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "confirmUse",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
