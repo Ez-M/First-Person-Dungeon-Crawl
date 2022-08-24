@@ -22,7 +22,10 @@ public class PlayerController : MonoBehaviour
    public InputAction moveRight;
    public InputAction moveBack;
    public InputAction moveLeft;
+   public InputAction turnLeft;
+   public InputAction turnRight;
    public InputAction confirm;
+
 
 
 
@@ -34,7 +37,16 @@ public class PlayerController : MonoBehaviour
         moveBack = playerControls.movement.moveback;
         moveLeft = playerControls.movement.moveleft;
 
+        turnLeft = playerControls.movement.turnleft;
+        turnRight = playerControls.movement.turnright;
+
         confirm = playerControls.actions.confirmUse;
+
+
+        moveForward.performed += InputForward;
+        moveRight.performed += InputRight;
+        moveBack.performed += InputBack;
+        moveLeft.performed += InputLeft;
 
         #endregion
     }
@@ -49,5 +61,31 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         
+    }
+    #region -InputMoveFuncs-
+    public void InputForward(InputAction.CallbackContext value)
+    {
+        AttemptMove(0, 1);
+    }
+
+        public void InputRight(InputAction.CallbackContext value)
+    {
+        AttemptMove(90, 1);
+    }
+
+        public void InputBack(InputAction.CallbackContext value)
+    {
+        AttemptMove(180, 1);
+    }
+
+        public void InputLeft(InputAction.CallbackContext value)
+    {
+        AttemptMove(270, 1);
+    }
+    #endregion
+
+    public void AttemptMove(float direction, float distance)
+    {
+
     }
 }
