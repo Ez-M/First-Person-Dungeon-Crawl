@@ -5320,6 +5320,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 915310166}
+  - component: {fileID: 915310169}
   - component: {fileID: 915310168}
   - component: {fileID: 915310167}
   m_Layer: 0
@@ -5352,6 +5353,88 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 915310165}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 1b93cd33ec70e074fb6ec44ef2f4a57e, type: 3}
+  m_NotificationBehavior: 3
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d748e6f6-4be8-4f49-9991-d0fced3daf72
+    m_ActionName: movement/move forward[/Keyboard/w]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 814d09cd-a149-446e-84c1-96a55228c299
+    m_ActionName: movement/move right[/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 79671983-e3f1-4239-b487-c75d7dabf4e3
+    m_ActionName: movement/move back[/Keyboard/s]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f05640bc-d76d-4e62-a9e3-4e9c8786273e
+    m_ActionName: movement/move left[/Keyboard/a]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1aab842b-9120-4cca-bd56-1132651b24eb
+    m_ActionName: movement/turn left[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4c569b1f-3ed4-4cb5-8843-8019004b243f
+    m_ActionName: movement/turn right[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 63947c87-cf4d-40fb-bedf-e7e01da9c659
+    m_ActionName: actions/confirmUse[/Keyboard/space]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: movement
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &915310168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915310165}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c0e975ae6351c34ea9d46a9faa9949d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &915310169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915310165}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b8d5999494548a48890aeb46747a636, type: 3}
@@ -5361,7 +5444,7 @@ MonoBehaviour:
     m_Name: Move Forward
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 1486f9bb-121c-4ce4-b87b-9f827c06f689
+    m_Id: 37fa3f35-171c-45a5-b145-f2e20447d117
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
@@ -5370,7 +5453,7 @@ MonoBehaviour:
     m_Name: Move Right
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 299955a2-35bc-46b7-86d7-07bc950e040f
+    m_Id: a864bb02-f011-41bf-94c6-fac46c6771d3
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
@@ -5379,7 +5462,7 @@ MonoBehaviour:
     m_Name: Move Back
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 1d173add-395a-4e93-973a-8b790d027164
+    m_Id: b7abcc34-6e2b-42d9-a79f-d8cd4cb0639a
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
@@ -5388,7 +5471,7 @@ MonoBehaviour:
     m_Name: Move Left
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 26d52d02-3a06-4d22-b17a-0fb7e97ee102
+    m_Id: ab460c63-3524-4a7e-ab2d-969f98c09122
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
@@ -5397,7 +5480,7 @@ MonoBehaviour:
     m_Name: Turn Left
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 244c4155-8395-4531-be90-2aad9ce17bc1
+    m_Id: dc764a5f-b5d3-4425-ac28-4282e85fbce3
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
@@ -5406,7 +5489,7 @@ MonoBehaviour:
     m_Name: Turn Right
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 2f45fc5c-8226-4da9-9eb4-232e23e981db
+    m_Id: 69e2a4ac-2112-4d5d-b256-5cbc79aa52f7
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
@@ -5415,23 +5498,11 @@ MonoBehaviour:
     m_Name: Confirm
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 87987f37-bcb5-4328-ac90-7854f428e0d8
+    m_Id: ba9b0393-7ae1-4ed3-88c0-970e47bfdcda
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
---- !u!114 &915310168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 915310165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c0e975ae6351c34ea9d46a9faa9949d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &916323789
 GameObject:
   m_ObjectHideFlags: 0

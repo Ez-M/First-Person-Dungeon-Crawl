@@ -101,16 +101,46 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
-    public void AttemptMove(int direction, float distance)
+    public void AttemptMove(float direction, float distance)
     {
-        RaycastHit hit;
-        float moveDistance = distance * 2.5f;
-        Vector3 moveDirection = playerCap.transform.forward + new Vector3(0, direction, 0);
+       RaycastHit hit;
+        float moveDistance;
+        Vector3 moveDirection = playerCap.transform.eulerAngles + new Vector3 (0, direction, 0);
+
+        Vector3 moveActual;
+
+        switch(moveDirection.y)
+        {
+            case 0f:
+            moveActual = playerCap.transform.forward;
+            moveDistance = distance * 1f;
+            break;
+            case 90f:
+            moveActual = playerCap.transform.right;
+            moveDistance = distance * 1f;
+            break;
+            case 180f:
+            moveActual = playerCap.transform.forward;
+            moveDistance = distance * -1f;
+            break;
+            case 270f:
+            moveActual = playerCap.transform.right;
+            moveDistance = distance * -1f;
+            break;
+            default: 
+            moveActual = playerCap.transform.forward;
+            moveDistance = distance * 1f;
+            break;
+        }
         if(Physics.Raycast(gameObject.transform.position, moveDirection, out hit, moveDistance, 0, QueryTriggerInteraction.Ignore)){
             Debug.Log("Invalid move!");
         } else
         {
-            gameObject.transform.position += (moveDirection.normalized * moveDistance);
+            Debug.DrawLine(playerCap.transform.position, playerCap.transform.position+(moveActual * moveDistance), Color.cyan, 1f);
+            Vector3 newSpot = gameObject.transform.position + (moveActual * moveDistance);
+            gameObject.transform.position = newSpot;
+                // gameObject.transform.eulerAngles = moveDirection;
+            // gameObject.transform.position += (moveDirection * moveDistance);
         }
     }
 }
