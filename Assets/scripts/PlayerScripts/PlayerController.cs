@@ -16,15 +16,15 @@ public class PlayerController : MonoBehaviour
     #endregion
 
 
-   private PlayerControls playerControls;
+    private PlayerControls playerControls;
 
-   public InputAction moveForward;
-   public InputAction moveRight;
-   public InputAction moveBack;
-   public InputAction moveLeft;
-   public InputAction turnLeft;
-   public InputAction turnRight;
-   public InputAction confirm;
+    public InputAction moveForward;
+    public InputAction moveRight;
+    public InputAction moveBack;
+    public InputAction moveLeft;
+    public InputAction turnLeft;
+    public InputAction turnRight;
+    public InputAction confirm;
 
 
 
@@ -35,14 +35,14 @@ public class PlayerController : MonoBehaviour
 
         #region -PLAYER INIT-
 
-            playerCap = gameObject.transform.GetChild(0).gameObject;
-            playerCam = playerCap.transform.GetChild(0).gameObject.GetComponent<Camera>();
+        playerCap = gameObject.transform.GetChild(0).gameObject;
+        playerCam = playerCap.transform.GetChild(0).gameObject.GetComponent<Camera>();
 
 
         #endregion
 
         #region -INPUTS SET-
-        
+
         moveForward = playerControls.movement.moveforward;
         moveRight = playerControls.movement.moveright;
         moveBack = playerControls.movement.moveback;
@@ -59,6 +59,9 @@ public class PlayerController : MonoBehaviour
         moveBack.performed += InputBack;
         moveLeft.performed += InputLeft;
 
+        turnLeft.performed += InputTurnLeft;
+        turnRight.performed += InputTurnRight;
+
         playerControls.Enable();
 
         #endregion
@@ -70,13 +73,13 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     #region -InputMoveFuncs-
     public void InputForward(InputAction.CallbackContext value)
@@ -85,61 +88,85 @@ public class PlayerController : MonoBehaviour
         AttemptMove(0, 1);
     }
 
-        public void InputRight(InputAction.CallbackContext value)
+    public void InputRight(InputAction.CallbackContext value)
     {
         AttemptMove(90, 1);
     }
 
-        public void InputBack(InputAction.CallbackContext value)
+    public void InputBack(InputAction.CallbackContext value)
     {
         AttemptMove(180, 1);
     }
 
-        public void InputLeft(InputAction.CallbackContext value)
+    public void InputLeft(InputAction.CallbackContext value)
     {
         AttemptMove(270, 1);
     }
     #endregion
 
+
+    #region -InputTurnFuncs-
+
+    public void InputTurnLeft(InputAction.CallbackContext value)
+    {
+        Vector3 currentRotation = playerCap.transform.eulerAngles;
+        Vector3 targetRotation = currentRotation + new Vector3 (0, -90, 0);
+        playerCap.transform.eulerAngles = targetRotation;
+    }
+    public void InputTurnRight(InputAction.CallbackContext value)
+    {
+        Vector3 currentRotation = playerCap.transform.eulerAngles;
+        Vector3 targetRotation = currentRotation + new Vector3 (0, 90, 0);
+        playerCap.transform.eulerAngles = targetRotation;
+    }
+
+
+    #endregion
+
+
+
     public void AttemptMove(float direction, float distance)
     {
-       RaycastHit hit;
+        RaycastHit hit;
         float moveDistance;
-        Vector3 moveDirection = playerCap.transform.eulerAngles + new Vector3 (0, direction, 0);
+        Vector3 moveDirection = new Vector3(0, direction, 0); 
 
         Vector3 moveActual;
 
-        switch(moveDirection.y)
+        switch (direction)
         {
             case 0f:
-            moveActual = playerCap.transform.forward;
-            moveDistance = distance * 1f;
-            break;
+                moveActual = playerCap.transform.forward;
+                moveDistance = distance * 1f;
+                break;
             case 90f:
-            moveActual = playerCap.transform.right;
-            moveDistance = distance * 1f;
-            break;
+                moveActual = playerCap.transform.right;
+                moveDistance = distance * 1f;
+                break;
             case 180f:
-            moveActual = playerCap.transform.forward;
-            moveDistance = distance * -1f;
-            break;
+                moveActual = playerCap.transform.forward;
+                moveDistance = distance * -1f;
+                break;
             case 270f:
-            moveActual = playerCap.transform.right;
-            moveDistance = distance * -1f;
-            break;
-            default: 
-            moveActual = playerCap.transform.forward;
-            moveDistance = distance * 1f;
-            break;
+                moveActual = playerCap.transform.right;
+                moveDistance = distance * -1f;
+                break;
+            default:
+                moveActual = playerCap.transform.forward;
+                moveDistance = distance * 0f;
+                Debug.Log(moveDirection.y);
+                break;
         }
-        if(Physics.Raycast(gameObject.transform.position, moveDirection, out hit, moveDistance, 0, QueryTriggerInteraction.Ignore)){
-            Debug.Log("Invalid move!");
-        } else
+        if (Physics.Raycast(gameObject.transform.position, moveDirection, out hit, moveDistance, 0, QueryTriggerInteraction.Ignore))
         {
-            Debug.DrawLine(playerCap.transform.position, playerCap.transform.position+(moveActual * moveDistance), Color.cyan, 1f);
+            Debug.Log("Invalid move!");
+        }
+        else
+        {
+            Debug.DrawLine(playerCap.transform.position, playerCap.transform.position + (moveActual * moveDistance), Color.cyan, 1f);
             Vector3 newSpot = gameObject.transform.position + (moveActual * moveDistance);
             gameObject.transform.position = newSpot;
-                // gameObject.transform.eulerAngles = moveDirection;
+            // gameObject.transform.eulerAngles = moveDirection;
             // gameObject.transform.position += (moveDirection * moveDistance);
         }
     }
